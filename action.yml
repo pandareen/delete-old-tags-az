@@ -12,8 +12,7 @@ runs:
       with:
         creds: ${{ inputs.creds }}
 
-    - name: Checkout repository content
-        uses: actions/checkout@v3 # Checkout the repository content to github runner.
+    - uses: actions/checkout@v3 # Checkout the repository content to github runner.
 
     - uses: actions/setup-python@v3
     - run: |

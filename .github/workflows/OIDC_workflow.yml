@@ -9,6 +9,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: pandareen/delete-old-tags-az@v4
+      - uses: pandareen/delete-old-tags-az@main
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
