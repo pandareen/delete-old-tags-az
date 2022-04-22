@@ -1,0 +1,16 @@
+# action.yml
+name: 'Delete old azure container tags'
+description: 'This action will delete all docker images except the latest in the azure container repository'
+inputs:
+  creds:
+    description: 'Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS'
+    required: true
+runs:
+  uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
