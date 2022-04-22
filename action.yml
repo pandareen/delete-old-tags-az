@@ -9,7 +9,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Azure cli
-      run: |
+    - run: |
         sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
         curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
         AZ_REPO=$(lsb_release -cs)
@@ -23,12 +23,10 @@ runs:
     - uses: actions/checkout@v3 # Checkout the repository content to github runner.
 
     - uses: actions/setup-python@v3
-    - shell:
-      run: |
+    - run: |
         pip install --pre azure-containerregistry
         pip install --pre azure-identity
 
     - name: Execute Python script # Run the run.py to get the latest data
-      shell:
-      run: python del_old_containers.py
+    - run: python del_old_containers.py
 
