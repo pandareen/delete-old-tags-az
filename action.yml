@@ -27,5 +27,5 @@ runs:
 
     - name: Execute Python script # Run the run.py to get the latest data
       shell:
-      run: python del_old_containers.py --acr-name ${{ inputs.acr-name }} --repository-name ${{ inputs.repository-name }} --acr-name ${{ inputs.latest-tag }}
+      run: python del_old_containers.py --acr-name ${{ inputs.acr-name }} --repository-name ${{ inputs.repository-name }} --latest-tag ${{ inputs.latest-tag }}
 
