@@ -1,6 +1,18 @@
 # action.yml
 name: 'Delete old azure container tags'
 description: 'This action will delete all docker images except the latest in the azure container repository'
+inputs:
+  acr-name:  # azure container registry
+    description: 'Specify the name of the Azure container registry'
+    required: true
+
+  repository-name:  # container image name
+    description: 'Specify the name of the container image'
+    required: true
+
+  latest-tag:  # tag name
+    description: 'Specify latest tag. Keep the latest tag and delete all other tags'
+    required: true
 
 runs:
   using: "composite"
