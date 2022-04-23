@@ -14,8 +14,8 @@ with ContainerRegistryClient(endpoint, DefaultAzureCredential(), audience="https
         print(f"repository name is {repository}")
         tag_count = 0
         for tag in client.list_tag_properties(repository, order_by=ArtifactTagOrder.LAST_UPDATED_ON_DESCENDING):
-            print(f"found tag {tag}")
+            print(f"found tag {tag.name}")
             tag_count += 1
-            if tag_count > 5:
+            if tag_count > 1:
                 print("Deleting {}:{}".format(repository, tag.name))
                 client.delete_tag(repository, tag.name)
